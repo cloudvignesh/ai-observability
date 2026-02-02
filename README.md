@@ -26,6 +26,10 @@ This system aims to simplify the process of observing, debugging, and maintainin
 
 By the end, you’ll have a full AI-powered observability stack running in AKS Cluster
 
+## Data Flow Overview
+
+![otel-demo](assets/screenshots/data_flow.png)
+
 ## Technical Guide
 ### Step 1: Setup a Kubernetes Cluster
 To create the kubernetes cluster in Azure, please follow this [readme.md](https://github.com/cloudvignesh/robotshop-microservices?tab=readme-ov-file#create-the-azure-kubernetes-service) which clearly explains the step-by-step instructions on how to setup the cluster.
@@ -38,6 +42,7 @@ To create the kubernetes cluster in Azure, please follow this [readme.md](https:
 - Copy your Team API Key
 
 Dataset name we will use: **otel-demo**
+
 ![otel-demo](assets/screenshots/otel_demo.png)
 
 ### Step 3: Install OTEL Helm Chart
@@ -169,7 +174,9 @@ EOF
 
 ### Step 8: Explore the application
 Open browser and paste your load balancer endpoint to access the open-telemetry demo storefront UI
+
 **Action:** Explore the app: Go to shopping -> Add Products in the cart -> Place Order. So that the metrics, traces will appear in the honeycomb dashboard.
+
 ![otel-demo](assets/screenshots/otel_home_page_01.png)
 ![otel-demo](assets/screenshots/otel_home_page_02.png)
 
@@ -184,6 +191,7 @@ Open browser and paste your load balancer endpoint to access the open-telemetry 
     - error rates
 
 Your collector is exporting correctly if you see fresh traces.
+
 ![otel-demo](assets/screenshots/metrics_honeycomb.png)
 
 ### Step 9: Setup HoneyComb MCP in VS Code
@@ -237,6 +245,7 @@ Use these in Copilot Chat inside VS Code:
 4. Show me traces where frontend took more than 1 second.
 
 **Refer the below screenhots on how MCP services and Copilot** will help to troubleshoot or debugging the application metrics, traces and logs.
+
 ![otel-demo](assets/screenshots/mcp_1.png)
 ![otel-demo](assets/screenshots/mcp_2.png)
 ![otel-demo](assets/screenshots/mcp_3.png)
