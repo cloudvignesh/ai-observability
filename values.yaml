@@ -1,0 +1,36 @@
+opentelemetry-collector:
+  enabled: true
+
+  config:
+    receivers:
+      otlp:
+        protocols:
+          http: {}
+          grpc: {}
+
+    processors:
+      batch: {}
+
+    exporters:
+      otlphttp/honeycomb:
+        endpoint: https://api.honeycomb.io
+        headers:
+          x-honeycomb-team: "<YOUR_API_KEY>"
+          x-honeycomb-dataset: "otel-demo"
+
+    service:
+      pipelines:
+        traces:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [otlphttp/honeycomb]
+
+        metrics:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [otlphttp/honeycomb]
+
+        logs:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [otlphttp/honeycomb]

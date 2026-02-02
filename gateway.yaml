@@ -1,0 +1,19 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: gateway-03
+  namespace: web-app
+  annotations:
+    alb.networking.azure.io/alb-id: $RESOURCE_ID # Resource ID of the Application Load Balancer
+spec:
+  gatewayClassName: azure-alb-external
+  listeners:
+  - name: http
+    port: 80
+    protocol: HTTP
+    allowedRoutes:
+      namespaces:
+        from: Same
+  addresses:
+  - type: alb.networking.azure.io/alb-frontend
+    value: otel-demo # Frontend name from Application Gateway for container
