@@ -260,4 +260,4 @@ Access other services for tracking, monitoring and load generation once exposed 
 - Feature Flags UI    http://localhost:8080/feature/
 ---
 
-**Built with ❤️ by [cloudvignesh](https://github.com/cloudvignesh)**
+**Built by [cloudvignesh](https://github.com/cloudvignesh)**
